@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String, Float
+from sqlalchemy import Column, ForeignKey, Integer, String, Float, Date
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
@@ -41,6 +41,11 @@ class Character(Base) :
 class User(Base) :
     __tablename__= 'user'
     id = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False)
+    last_name = Column(String(50), nullable=False)
+    email = Column(String(50), nullable=False)
+    password = Column(String(50), nullable=False)
+    subscription_date = Column(Date, nullable=False)
 
 class Favorite_planet(Base) :
     __tablename__= 'favorite_planet'
